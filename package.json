@@ -1,6 +1,6 @@
 {
   "name": "flush-dns",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A small tool that makes it easy to clear your dns cache.",
   "main": "index.js",
   "scripts": {

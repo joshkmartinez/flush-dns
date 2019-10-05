@@ -8,7 +8,7 @@ const ERROR_MSG = "Error: DNS Flush failed.";
 const SUCCESS_MSG = "DNS cache has been flushed.";
 clear();
 const OS_TYPE = os.type().toLowerCase();
-console.log("Operating platform: " + OS_TYPE + ".");
+console.log("Operating platform: " + OS_TYPE + "");
 console.log(`The parent process is pid ${process.ppid}`);
 console.log(chalk.blue("Flushing DNS cache... "));
 console.log("You may be asked to enter your password.");
@@ -44,7 +44,7 @@ if (OS_TYPE == "darwin") {
     console.log(chalk.blue(SUCCESS_MSG));
     console.log("Did you know Ubuntu doesn’t cache DNS entries by default?");
     console.log(
-      "If you have installed a DNS service here are some ways you can clear its cache."
+      "If you have installed a DNS service, here are some ways you can clear its' cache."
     );
     console.log("nsdc: sudo /etc/init.d/nscd restart");
     console.log("dnsmasq: sudo /etc/init.d/dnsmasq restart");

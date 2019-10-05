@@ -7,11 +7,12 @@ const os = require("os");
 const ERROR_MSG = "Error: DNS Flush failed.";
 const SUCCESS_MSG = "DNS cache has been flushed.";
 clear();
-console.log("Operating platform: " + os.type() + ".");
+const OS_TYPE = os.type().toLowerCase();
+console.log("Operating platform: " + OS_TYPE + ".");
 console.log(`The parent process is pid ${process.ppid}`);
 console.log(chalk.blue("Flushing DNS cache... "));
-console.log("You may be asked to enter your password.")
-if (os.type().toLowerCase() == "darwin") {
+console.log("You may be asked to enter your password.");
+if (OS_TYPE == "darwin") {
   if (
     shell.exec("sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder")
       .code !== 0
@@ -24,14 +25,14 @@ if (os.type().toLowerCase() == "darwin") {
   } else {
     console.log(chalk.blue(SUCCESS_MSG));
   }
-} else if (os.type() == "win32") {
+} else if (OS_TYPE == "win32") {
   if (shell.exec("ipconfig /flushdns").code !== 0) {
     shell.echo(ERROR_MSG);
     shell.exit(1);
   } else {
     console.log(chalk.blue(SUCCESS_MSG));
   }
-} else if (os.type() == "linux") {
+} else if (OS_TYPE == "linux") {
   if (
     shell.exec(
       "sudo /etc/init.d/dns-clean restart;sudo /etc/init.d/networking force-reload"

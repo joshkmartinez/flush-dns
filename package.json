@@ -1,0 +1,32 @@
+{
+  "name": "flush-dns",
+  "version": "1.0.0",
+  "description": "A small tool that makes it easy to clear your dns cache.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshkmartinez/flush-dns.git"
+  },
+  "keywords": [
+    "dns",
+    "cli"
+  ],
+  "author": "Joshua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshkmartinez/flush-dns/issues"
+  },
+  "homepage": "https://github.com/joshkmartinez/flush-dns#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.4",
+    "shelljs": "^0.8.3"
+  },
+  "bin": {
+    "flush-dns": "./index.js"
+  }
+}

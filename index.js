@@ -4,7 +4,9 @@ const chalk = require(`chalk`);
 const os = require(`os`);
 const shell = require(`shelljs`);
 const OS_TYPE = os.type().toLowerCase();
-const ERROR_MSG = chalk.red(`Error: DNS Flush failed.`);
+const ERROR_MSG =
+  chalk.red(`Error: DNS Flush failed.`) +
+  "\nIf you have a problem, feel free to open an issue at https://github.com/joshkmartinez/flush-dns";
 const SUCCESS_MSG = chalk.green(`DNS cache has been flushed.`);
 
 console.log(`Operating platform: ${chalk.bold.yellow(OS_TYPE)}

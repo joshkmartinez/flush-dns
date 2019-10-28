@@ -9,9 +9,9 @@ const ERROR_MSG =
   "\nIf you have a problem, feel free to open an issue at https://github.com/joshkmartinez/flush-dns";
 const SUCCESS_MSG = chalk.green(`DNS cache has been flushed.`);
 
-console.log(`Operating platform: ${chalk.bold.yellow(OS_TYPE)}
-The parent process is pid ${chalk.bold.yellow(process.ppid)}
-${chalk.blue("Attempting to flush DNS cache...")} 
+console.log(`Operating platform: ${chalk.blue(OS_TYPE)}
+Parent process pid ${chalk.blue(process.ppid)}
+${chalk.bold.blue("Attempting to flush DNS cache...")} 
 You may be asked to enter your password.`);
 try {
   if (
@@ -29,11 +29,9 @@ try {
     ) {
       shell.echo(ERROR_MSG);
       shell.exit(1);
-      console.log(
-        "This tool is not supported on operating systems lower than OS X 10.10.4"
-      );
+      console.log("This tool only supports OS X 10.10.4 and above.");
     } else {
-      console.log(chalk.blue(SUCCESS_MSG));
+      console.log(chalk.bold.blue(SUCCESS_MSG));
     }
   } else if (OS_TYPE == "win32" || OS_TYPE == "windows_nt") {
     if (shell.exec("ipconfig /flushdns").code !== 0) {
@@ -62,5 +60,10 @@ try {
     }
   }
 } catch (error) {
-  console.log(chalk.bold.red(`Error: ${error}`));
+  console.log(
+    chalk.bold.red(
+      `Error: ${error}` +
+        "\nConsider opening an issue. https://github.com/joshkmartinez/flush-dns"
+    )
+  );
 }
